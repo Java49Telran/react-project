@@ -9,27 +9,28 @@ import { Logout } from './components/Logout';
 import {useSelector} from 'react-redux';
 import { Input } from './components/Input';
 function App() {
-  const auth: boolean = useSelector<any, boolean>(state => state.auth.authenticated);
+  const auth: string = useSelector<any, string>(state => state.auth.authenticated);
   const [operand, setOperand] = React.useState(1);
   const [factor, setFactor] = React.useState(10);
   return <div>
     {auth && <div>
-        <Input placeHolder={'Enter operand'} inputProcess={function (value: string):
+      <p>Username is {auth}</p>
+        { auth.includes("admin") && <Input placeHolder={'Enter operand'} inputProcess={function (value: string):
          string {
         setOperand(+value);
         return '';
-      } }></Input>
+      } }></Input>}
         <Input placeHolder={'Enter factor'} inputProcess={function (value: string):
          string {
         setFactor(+value);
         return '';
       } }></Input>
       </div>}
-    {auth && <div>
+    <div>
     <CounterUpdater operand={operand}></CounterUpdater>
     <CounterSquare></CounterSquare>
     <CounterMultiply factor={factor}></CounterMultiply>
-  </div>}
+  </div>
   {auth && <Logout></Logout>}
   {!auth && <Login></Login>}
   </div>

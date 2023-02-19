@@ -1,7 +1,7 @@
 import { Employee } from "../model/Employee";
 
 export class Company {
-    private employees: Employee[] = [];
+   private employees: Employee[] = [];
     addEmployee(empl: Employee): void {
         this.employees.push(empl);
     }
@@ -21,6 +21,6 @@ export class Company {
         index >= 0 && this.employees.splice(index, 1) ;
     }
     getAllEmployees(): Employee[] {
-        return this.employees;
+        return this.employees.slice();
     }
 }

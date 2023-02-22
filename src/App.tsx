@@ -20,9 +20,12 @@ function App() {
     const authUser:string = useSelector<any,string>(state=>state.auth.authenticated );
     useEffect(()=> {
         function getRoutes(): RouteType[] {
+            const logoutRoute: RouteType |undefined = layoutConfig.routes
+            .find(r => r.path.includes('logout'))
+            logoutRoute!.label = authUser;
             return layoutConfig.routes.filter(r => (!authUser && !r.flAuth) ||
             (authUser.includes('admin') && r.flAdmin) ||
-            (!!authUser && r.flAuth && !r.flAdmin))
+            (authUser && r.flAuth && !r.flAdmin))
         }
         setRoutes(getRoutes());
     }, [authUser])

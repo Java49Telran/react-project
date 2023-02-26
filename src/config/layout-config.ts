@@ -3,6 +3,7 @@ export const layoutConfig: NavigatorProps = {
     routes: [
         { label: 'Employees', path: '/', flAuth: true },
         { label: 'Add Employees', path: '/add', flAuth: true, flAdmin: true},
+        { label: 'Generation', path: '/generation', flAuth: true, flAdmin: true},
         { label: 'Age Statistics', path: '/statistics/age' ,
          flAuth: true, flAdmin: false},
         { label: 'Salary Statistics', path: '/statistics/salary',

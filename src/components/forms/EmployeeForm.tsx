@@ -72,11 +72,14 @@ export const EmployeeForm: React.FC<Props> = ({submitFn, employeeUpdate}) => {
             }} onChange={handlerBirthdate}/>
             <TextField label="salary" fullWidth required 
             type="number" onChange={handlerSalary}
+             value={employee.salary || ''}
               helperText={`enter salary in range [${minSalary}-${maxSalary}]`}
               inputProps = {{
                 min: `${minSalary}`,
                 max: `${maxSalary}`
-              }}/>
+              }} InputLabelProps = {{
+                shrink: !!employeeUpdate || !!employee.salary
+            }}/>
               <Button type="submit">Submit</Button>
             <Button type="reset">Reset</Button>
         </form>

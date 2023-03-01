@@ -8,7 +8,6 @@ import { AddEmployee } from './components/pages/AddEmployee';
 import { AgeStatistics } from './components/pages/AgeStatistics';
 import { SalaryStatistics } from './components/pages/SalaryStatistics';
 import { useEffect, useState } from 'react';
-import { NavigatorProps } from './model/NavigatorProps';
 import { RouteType } from './model/RouteType';
 import { useSelector } from 'react-redux';
 import { Login } from './components/pages/Login';

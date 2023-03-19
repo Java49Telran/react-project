@@ -45,7 +45,8 @@ export const Generation: React.FC = () => {
               <Button type="submit">Generate</Button>
 
         </form>
-        {flAlertSuccess && code === "OK" && <Alert severity="success">Generated {amount} random employee objects</Alert>}
+        {flAlertSuccess && code === "OK" && <Alert severity="success">Generated 
+        {amount} random employee objects</Alert>}
         {code !== "OK" && <Alert severity='error'
              onClose={() => {
                 dispatch(codeActions.setCode("OK"));
